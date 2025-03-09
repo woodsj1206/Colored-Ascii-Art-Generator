@@ -49,9 +49,9 @@ The following shows the main file structure of the project with brief descriptio
 ```
 ├── fonts/                     # Folder containing font files
 ├── images/                    # Folder containing input images
+├── output_files/              # Folder where the generated ASCII images are saved
 ├── main.py                    # Main script for generating ASCII art
 ├── progress_bar.py            # Progress bar implementation to visualize script execution
-├── output_files/              # Folder where the generated ASCII images are saved
 └── requirements.txt           # List of required Python packages for the project
 ```
 
