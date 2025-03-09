@@ -31,9 +31,10 @@
     <Folder Include="output_files\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\Birthstone-Regular.ttf" />
+    <Content Include="fonts\BungeeTint-Regular.ttf" />
     <Content Include="fonts\Honk-Regular-VariableFont_MORF,SHLN.ttf" />
     <Content Include="fonts\Nabla-Regular-VariableFont_EDPT,EHLT.ttf" />
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.9" />
