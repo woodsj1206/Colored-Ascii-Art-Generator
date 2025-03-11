@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ### 4. Run the Script
 Follow the example below to execute the main script to print the ASCII output and save it as an image:
 ```bash
-python main.py --print --image "images/image_name.jpg" --font "fonts/font_name.ttf" --font-size 40 --width-spacing 0 --height-spacing 0 --bg-color 0,0,0
+python main.py --print --image "images/image_name.jpg" --font "fonts/font_name.ttf" --font-size 12 --width-spacing 0 --height-spacing 0 --bg-color 0,0,0
 ```
 
 ### 5. Access the Generated Image
