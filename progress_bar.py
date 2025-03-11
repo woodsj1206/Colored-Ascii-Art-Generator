@@ -5,13 +5,13 @@ class ProgressBar:
     A simple text-based progress bar that updates dynamically in the console.
 
     Attributes:
-        name (str): Label for the progress bar.
-        bar_width (int): Total width of the progress bar in characters.
-        fill_char (str): Character representing completed progress.
-        empty_char (str): Character representing remaining progress.
-        bar_ends (tuple): Characters enclosing the progress bar (e.g., brackets).
-        total (int): The total value representing 100% completion.
-        progress (int): The current progress value.
+        name (str): Label for the progress bar (default: Loading).
+        bar_width (int): Total width of the progress bar in characters (default: 20).
+        fill_char (str): Character representing completed progress (default: █).
+        empty_char (str): Character representing remaining progress (default: ▒).
+        bar_ends (tuple): Characters enclosing the progress bar (e.g., brackets) (default: ([, ])).
+        total (int): The total value representing 100% completion (default: 100). 
+        progress (int): The current progress value (default: 0).
     """
 
     def __init__(self, name="Loading", bar_width=20, fill_char="█", empty_char="▒", bar_ends=("[", "]"), progress=0, total=100):
@@ -85,8 +85,8 @@ class ProgressBar:
 
         # Use carriage return '\r' to overwrite the same line
         sys.stdout.write(f"\r{self.render(show_percentage)}")
-        sys.stdout.flush()  # Ensure immediate output
+        sys.stdout.flush() 
         
         # If task is completed, print a new line to start fresh for next task
         if self.progress >= self.total:
-            print()  # Prints a new line
+            print()

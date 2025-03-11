@@ -55,9 +55,10 @@ def display_colored_ascii(ascii_art: list[list[str]]) -> None:
     """
     Prints a colored ASCII image to the console using ANSI escape codes.
 
-    ascii_art: A 2D list where each element is a tuple (char, r, g, b).
-                      - char: ASCII character
-                      - r, g, b: RGB color values (0-255)
+    Args:
+        ascii_art: A 2D list where each element is a tuple (char, r, g, b).
+                          - char: ASCII character
+                          - r, g, b: RGB color values (0-255)
                       
     Returns:
         None. Prints the colored ASCII image to the console.
@@ -84,6 +85,7 @@ def rgb_char(char: str, r: int, g: int, b: int) -> str:
         ANSI-colored ASCII character string
         
     """
+    
     return f"\033[38;2;{r};{g};{b}m{char}\033[0m"
 
 
@@ -112,7 +114,7 @@ def save_ascii_as_image(image: Image.Image, ascii_array: list[list[str]], font_p
     max_char_width = 0
     max_char_height = 0
 
-    # Get character dimensions using textbbox()
+    # Get character dimensions
     for char in ASCII_CHARS:
       bbox = font.getbbox(char, anchor="mm")  # Bounding box (left, top, right, bottom)
       max_char_width = max(max_char_width, (bbox[2] - bbox[0]))  # Width
@@ -186,7 +188,7 @@ def main():
         bg_color=background_color
         )
 
-    # Display the ASCII art in the terminal with colors
+    # Display the ASCII art in the console with colors
     if args.print:
         display_colored_ascii(ascii_art)
         
