@@ -3,6 +3,7 @@ This program converts images into colored ASCII art using various fonts. It disp
 
 ## Overview
 The table below showcases a comparison between the original image, the generated ASCII image output, and the console-rendered ASCII output:
+
 | Original         | Image Output       | Console Output       |
 |---------------|----------------------|----------------------|
 | <div align="center"><img src="assets/original_images/Eagle.jpg" width="200" height="299"> <br/> Photo by [Pixabay](https://www.pexels.com/photo/black-and-white-eagle-36846/) </div> | <div align="center"> <img src="output_files/Eagle_output.png" width="200" height="299"> <br/> `Honk-Regular-VariableFont_MORF,SHLN.ttf` </div> | <div align="center"> <img src="assets/console_output/Eagle_Console_Output.PNG" width="200" height="299">  <br/> `--print`  </div>  |
@@ -68,6 +69,7 @@ The following fonts are used in this project:
 
 ### Images:
 - Stock images sourced from [Pexels](https://www.pexels.com/).
+
 
 ## Development Environment
 Tools and technologies used in the development of the project:
