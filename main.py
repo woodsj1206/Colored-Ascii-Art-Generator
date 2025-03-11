@@ -3,7 +3,7 @@ Program Name: Colored Ascii Art Generator
 Author: woodsj1206 (https://github.com/woodsj1206)
 Description: This program converts an image into colored ascii art.
 Date Created: 3/7/25
-Last Modified: 3/8/25
+Last Modified: 3/11/25
 """
 
 import argparse
@@ -20,8 +20,12 @@ def convert_image_to_colored_ascii(image: Image.Image) -> list[list[str]]:
     """
     Converts an image to colored ASCII art.
 
-    :param image: PIL Image object (RGB)
-    :return: 2D list of ANSI-colored ASCII characters
+    Args:
+        image: PIL Image object (RGB)
+        
+    Returns: 
+        2D list of ANSI-colored ASCII characters
+        
     """
 
     # Convert image to grayscale
@@ -47,14 +51,19 @@ def convert_image_to_colored_ascii(image: Image.Image) -> list[list[str]]:
     return ascii_array
 
 
-def display_colored_ascii(ascii_art):
+def display_colored_ascii(ascii_art: list[list[str]]) -> None:
     """
-    Prints a colored ASCII image to the terminal using ANSI escape codes.
+    Prints a colored ASCII image to the console using ANSI escape codes.
 
-    :param ascii_art: A 2D list where each element is a tuple (char, r, g, b).
+    ascii_art: A 2D list where each element is a tuple (char, r, g, b).
                       - char: ASCII character
                       - r, g, b: RGB color values (0-255)
+                      
+    Returns:
+        None. Prints the colored ASCII image to the console.
+        
     """
+    
     for row in ascii_art:
         for char, r, g, b in row:
             print(rgb_char(char, r, g, b), end="")  # Print colored character without newline
@@ -65,25 +74,38 @@ def rgb_char(char: str, r: int, g: int, b: int) -> str:
     """
     Colors an ASCII character using ANSI escape codes.
 
-    :param char: ASCII character
-    :param r: Red (0-255)
-    :param g: Green (0-255)
-    :param b: Blue (0-255)
-    :return: ANSI-colored ASCII character string
+    Args:
+        char: ASCII character
+        r: Red (0-255)
+        g: Green (0-255)
+        b: Blue (0-255)
+        
+    Returns: 
+        ANSI-colored ASCII character string
+        
     """
     return f"\033[38;2;{r};{g};{b}m{char}\033[0m"
 
 
-def save_ascii_as_image(image: Image.Image, ascii_array: list[list[str]], font_path: str, output_path="ascii_image", font_size=12, bg_color=(0, 0, 0), width_spacing=0, height_spacing=0):
+def save_ascii_as_image(image: Image.Image, ascii_array: list[list[str]], font_path: str, output_path="ascii_image", font_size=12, bg_color=(0, 0, 0), width_spacing=0, height_spacing=0) -> None:
     """
     Saves the colored ASCII output as an image.
-
-    :param image: PIL Image object (RGB)
-    :param ascii_array: 2D list of ANSI-colored ASCII characters
-    :param output_path: Filename for saving the output image
-    :param font_size: Font size for rendering ASCII characters
-    :param bg_color: Background color of the image (default: black)
+    
+    Args:
+        image: PIL Image object (RGB).    
+        ascii_array: 2D list of ANSI-colored ASCII characters to be rendered onto the output image.    
+        font_path: Path to the TrueType (.ttf) font file to use for rendering the ASCII characters.    
+        output_path: Filename (without extension) for saving the output image (default: "ascii_image").  
+        font_size: Size of the font to be used when drawing each ASCII character (default: 12).    
+        bg_color: Background color of the output image, provided as an RGB tuple (default: black, (0, 0, 0)).   
+        width_spacing: Horizontal spacing between ASCII characters (default: 0).   
+        height_spacing: Vertical spacing between lines of ASCII characters (default: 0).
+        
+    Returns:
+        None. The function saves the rendered image to the specified output path.
+        
     """
+    
     # Load a font
     font = ImageFont.truetype(font_path, font_size)
     
@@ -131,7 +153,7 @@ def main():
     parser.add_argument("--print", action="store_true", help="Display the ASCII art in the terminal.")
     parser.add_argument("--image", type=str, required=True, help="Path to the image file.")
     parser.add_argument("--font", type=str, required=True, help="Path to the font file.")
-    parser.add_argument("--font-size", type=int, default=40, help="Font size for the ASCII image. (default: 40)")
+    parser.add_argument("--font-size", type=int, default=12, help="Font size for the ASCII image. (default: 12)")
     parser.add_argument("--width-spacing", type=int, default=0, help="Extra spacing between characters in width. (default: 0)")
     parser.add_argument("--height-spacing", type=int, default=0, help="Extra spacing between characters in height. (default: 0)")
     parser.add_argument("--bg-color", type=str, default="0,0,0", help="Background color in R,G,B format. (default: 0,0,0)")

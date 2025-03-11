@@ -24,13 +24,17 @@ class ProgressBar:
         self.progress = progress
         
 
-    def advance(self, step=1):
+    def advance(self, step=1) -> None:
         """
         Increases progress by a given step, ensuring it does not exceed total.
         
         Args:
-            step (int): Amount to increase progress by.
+            step (int): Amount to increment the progress (default: 1).
+            
+        Returns:
+            None.
         """
+        
         self.progress = min(self.progress + step, self.total)  # Prevent overflow
         
         
@@ -39,9 +43,12 @@ class ProgressBar:
         Updates and displays the progress bar in the console.
 
         Args:
-            step (int): Amount to increment the progress.
-            show_percentage (bool): Whether to display the percentage value.
-            persistent (bool): If False, clears the console before updating.
+            show_percentage (bool): Whether to display the current progress as a percentage (default: True).
+            
+        Returns:
+            str: A string representation of the progress bar with optional percentage or fraction display.
+            Returns an empty string if total is less than or equal to zero.
+          
         """
         
         if self.total <= 0:
@@ -61,14 +68,18 @@ class ProgressBar:
         return f"{self.name}: {progress_bar} {progress_display}"
     
 
-    def update(self, step=1, show_percentage=True):
+    def update(self, step=1, show_percentage=True) -> None:
         """
         Updates and displays the progress bar in the console.
 
         Args:
-            step (int): Amount to increment the progress.
-            show_percentage (bool): Whether to display the percentage value.
+            step (int): Amount to increment the progress (default: 1).
+            show_percentage (bool): Whether to display the current progress as a percentage (default: True).
+            
+        Returns:
+            None.
         """
+        
         # Advance progress before updating the display
         self.advance(step)
 
