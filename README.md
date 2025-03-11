@@ -64,10 +64,10 @@ The following fonts are used in this project:
 - [Bungee Tint](https://fonts.google.com/specimen/Bungee+Tint) - Designed by David Jonathan Ross
 - [Nabla](https://fonts.google.com/specimen/Nabla) - Designed by Arthur Reinders Folmer, Just van Rossum
 > [!NOTE]
-> Additional fonts can be added from [Google Fonts](https://fonts.google.com/)
+> Additional fonts can be added from [Google Fonts](https://fonts.google.com/).
 
 ### Images:
-- Stock images sourced from [Pexels](https://www.pexels.com/)
+- Stock images sourced from [Pexels](https://www.pexels.com/).
 
 ## Development Environment
 Tools and technologies used in the development of the project:
