@@ -5,13 +5,13 @@ class ProgressBar:
     A simple text-based progress bar that updates dynamically in the console.
 
     Attributes:
-        name (str): Label for the progress bar (default: Loading).
-        bar_width (int): Total width of the progress bar in characters (default: 20).
-        fill_char (str): Character representing completed progress (default: █).
-        empty_char (str): Character representing remaining progress (default: ▒).
-        bar_ends (tuple): Characters enclosing the progress bar (e.g., brackets) (default: ([, ])).
-        total (int): The total value representing 100% completion (default: 100). 
-        progress (int): The current progress value (default: 0).
+        name (str, optional): Label for the progress bar (default: Loading).
+        bar_width (int, optional): Total width of the progress bar in characters (default: 20).
+        fill_char (str, optional): Character representing completed progress (default: █).
+        empty_char (str, optional): Character representing remaining progress (default: ▒).
+        bar_ends (tuple, optional): Characters enclosing the progress bar (e.g., brackets) (default: ([, ])).
+        total (int, optional): The total value representing 100% completion (default: 100). 
+        progress (int, optional): The current progress value (default: 0).
     """
 
     def __init__(self, name="Loading", bar_width=20, fill_char="█", empty_char="▒", bar_ends=("[", "]"), progress=0, total=100):
@@ -29,7 +29,7 @@ class ProgressBar:
         Increases progress by a given step, ensuring it does not exceed total.
         
         Args:
-            step (int): Amount to increment the progress (default: 1).
+            step (int, optional): Amount to increment the progress (default: 1).
             
         Returns:
             None.
@@ -43,7 +43,7 @@ class ProgressBar:
         Updates and displays the progress bar in the console.
 
         Args:
-            show_percentage (bool): Whether to display the current progress as a percentage (default: True).
+            show_percentage (bool, optional): Whether to display the current progress as a percentage (default: True).
             
         Returns:
             str: A string representation of the progress bar with optional percentage or fraction display.
@@ -73,8 +73,8 @@ class ProgressBar:
         Updates and displays the progress bar in the console.
 
         Args:
-            step (int): Amount to increment the progress (default: 1).
-            show_percentage (bool): Whether to display the current progress as a percentage (default: True).
+            step (int, optional): Amount to increment the progress (default: 1).
+            show_percentage (bool, optional): Whether to display the current progress as a percentage (default: True).
             
         Returns:
             None.

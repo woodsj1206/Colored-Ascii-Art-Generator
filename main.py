@@ -21,10 +21,10 @@ def convert_image_to_colored_ascii(image: Image.Image) -> list[list[str]]:
     Converts an image to colored ASCII art.
 
     Args:
-        image: PIL Image object (RGB)
+        image (PIL.Image.Image): PIL Image object (RGB).
         
     Returns: 
-        2D list of ANSI-colored ASCII characters
+        list[list[str]]: 2D list of ANSI-colored ASCII characters.
         
     """
 
@@ -56,9 +56,9 @@ def display_colored_ascii(ascii_art: list[list[str]]) -> None:
     Prints a colored ASCII image to the console using ANSI escape codes.
 
     Args:
-        ascii_art: A 2D list where each element is a tuple (char, r, g, b).
-                          - char: ASCII character
-                          - r, g, b: RGB color values (0-255)
+        ascii_art (list[list[str]]): A 2D list where each element is a tuple (char, r, g, b).
+                          - char: ASCII character.
+                          - r, g, b: RGB color values (0-255).
                       
     Returns:
         None. Prints the colored ASCII image to the console.
@@ -76,13 +76,13 @@ def rgb_char(char: str, r: int, g: int, b: int) -> str:
     Colors an ASCII character using ANSI escape codes.
 
     Args:
-        char: ASCII character
-        r: Red (0-255)
-        g: Green (0-255)
-        b: Blue (0-255)
+        char (str): ASCII character.
+        r (int): Red (0-255).
+        g (int): Green (0-255).
+        b (int): Blue (0-255).
         
     Returns: 
-        ANSI-colored ASCII character string
+        str: ANSI-colored ASCII character string.
         
     """
     
@@ -94,14 +94,14 @@ def save_ascii_as_image(image: Image.Image, ascii_array: list[list[str]], font_p
     Saves the colored ASCII output as an image.
     
     Args:
-        image: PIL Image object (RGB).    
-        ascii_array: 2D list of ANSI-colored ASCII characters to be rendered onto the output image.    
-        font_path: Path to the TrueType (.ttf) font file to use for rendering the ASCII characters.    
-        output_path: Filename (without extension) for saving the output image (default: "ascii_image").  
-        font_size: Size of the font to be used when drawing each ASCII character (default: 12).    
-        bg_color: Background color of the output image, provided as an RGB tuple (default: black, (0, 0, 0)).   
-        width_spacing: Horizontal spacing between ASCII characters (default: 0).   
-        height_spacing: Vertical spacing between lines of ASCII characters (default: 0).
+        image (PIL.Image.Image): PIL Image object (RGB).    
+        ascii_array (list[list[str]]): 2D list of ANSI-colored ASCII characters to be rendered onto the output image.    
+        font_path (str): Path to the TrueType (.ttf) font file to use for rendering the ASCII characters.    
+        output_path (str, optional): Filename (without extension) for saving the output image (default: "ascii_image").  
+        font_size (int, optional): Size of the font to be used when drawing each ASCII character (default: 12).    
+        bg_color (tuple, optional): Background color of the output image, provided as an RGB tuple (default: black, (0, 0, 0)).   
+        width_spacing (int, optional): Horizontal spacing between ASCII characters (default: 0).   
+        height_spacing (int, optional): Vertical spacing between lines of ASCII characters (default: 0).
         
     Returns:
         None. The function saves the rendered image to the specified output path.
@@ -152,12 +152,12 @@ def save_ascii_as_image(image: Image.Image, ascii_array: list[list[str]], font_p
 def main():
     # Argument parser setup
     parser = argparse.ArgumentParser(description="Convert an image into colored ASCII art.")
-    parser.add_argument("--print", action="store_true", help="Display the ASCII art in the terminal.")
+    parser.add_argument("--print", action="store_true", help="Display the ASCII art in the console.")
     parser.add_argument("--image", type=str, required=True, help="Path to the image file.")
     parser.add_argument("--font", type=str, required=True, help="Path to the font file.")
     parser.add_argument("--font-size", type=int, default=12, help="Font size for the ASCII image. (default: 12)")
-    parser.add_argument("--width-spacing", type=int, default=0, help="Extra spacing between characters in width. (default: 0)")
-    parser.add_argument("--height-spacing", type=int, default=0, help="Extra spacing between characters in height. (default: 0)")
+    parser.add_argument("--width-spacing", type=int, default=0, help="Extra spacing between characters. (default: 0)")
+    parser.add_argument("--height-spacing", type=int, default=0, help="Extra spacing between lines of characters. (default: 0)")
     parser.add_argument("--bg-color", type=str, default="0,0,0", help="Background color in R,G,B format. (default: 0,0,0)")
     
     # Parse arguments
